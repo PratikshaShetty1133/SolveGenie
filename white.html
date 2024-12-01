@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whiteboard</title>
+    <style>
+        .canvas-container {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="canvas-container">
+        <canvas id="whiteboard"></canvas>
+    </div>
+
+    <div class="pen-container">
+        <h2>Select Pen Stroke Size</h2>
+        <input type="range" id="penSize" min="1" max="100" value="5" />
+        <p>Stroke Size: <span id="penSizeValue">5</span></p>
+    </div>
+    <div>
+        <label for="eraserSize">Eraser Size:</label>
+        <input type="range" id="eraserSizeSlider" min="1" max="100" value="50" />
+        <span id="eraserSizeValue">50</span>
+    </div>
+
+    <button id="clearBoard">Clear Whiteboard</button>
+    <button id="eraseMode">Erase</button>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const canvas = document.getElementById('whiteboard');
+            const ctx = canvas.getContext('2d');
+
+            // Set canvas size dynamically
+            const resizeCanvas = () => {
+                const container = document.querySelector('.canvas-container');
+                canvas.width = container.offsetWidth;
+                canvas.height = container.offsetHeight;
+            };
+
+            // Call resize function on load and resize events
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            let drawing = false;
+            let penSize = 5;
+            let eraserSize = 50;
+            let selectedColor = 'black';
+
+            ctx.lineCap = 'round';
+
+            // Start drawing
+            canvas.addEventListener('mousedown', (e) => {
+                drawing = true;
+                ctx.beginPath();
+                ctx.moveTo(e.offsetX, e.offsetY);
+            });
+
+            // Stop drawing
+            canvas.addEventListener('mouseup', () => {
+                drawing = false;
+                ctx.closePath();
+            });
+
+            // Draw or erase
+            canvas.addEventListener('mousemove', (e) => {
+                if (!drawing) return;
+
+                ctx.lineWidth = penSize; // Update lineWidth dynamically
+                ctx.strokeStyle = selectedColor; // Update pen color dynamically
+
+                ctx.lineTo(e.offsetX, e.offsetY);
+                ctx.stroke();
+            });
+
+            // Clear canvas
+            document.getElementById('clearBoard').addEventListener('click', () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            });
+
+            // Toggle erase mode
+            document.getElementById('eraseMode').addEventListener('click', () => {
+                if (selectedColor === 'white') {
+                    selectedColor = 'black';
+                } else {
+                    selectedColor = 'white';
+                }
+                ctx.strokeStyle = selectedColor;
+                document.getElementById('eraseMode').textContent = selectedColor === 'white' ? 'Draw' : 'Erase';
+            });
+
+            // Update pen size
+            document.getElementById('penSize').addEventListener('input', (e) => {
+                penSize = e.target.value;
+                document.getElementById('penSizeValue').textContent = penSize;
+                ctx.lineWidth = penSize; // Apply the new pen size immediately
+            });
+
+            // Update eraser size
+            document.getElementById('eraserSizeSlider').addEventListener('input', (e) => {
+                eraserSize = e.target.value;
+                document.getElementById('eraserSizeValue').textContent = eraserSize;
+            });
+        });
+    </script>
+</body>
+</html>

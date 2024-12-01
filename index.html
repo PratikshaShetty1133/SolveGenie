@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whiteboard with OCR</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.0.2/dist/tesseract.min.js"></script> <!-- Tesseract.js -->
+</head>
+<body>
+
+    <div class="container">
+        <h1>Practice Any Question Here!!</h1>
+
+
+        <div class="whiteboard-container">
+            <canvas id="whiteboard"></canvas>
+        </div>
+
+        <div class="buttons-container">
+            <button id="clearBoard">Clear Whiteboard</button>
+            <button id="eraseMode">Erase</button>
+        </div>
+
+        <div id="imageResult"></div>
+    </div>
+
+    <script src="whiteboard.js"></script> <!-- Your whiteboard.js -->
+    <script src="app.js"></script> <!-- Your app.js to handle OCR and logic -->
+</body>
+</html>

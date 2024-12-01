@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ae76eb, #83adf5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    color: white;
+}
+
+.welcome-container {
+    display: flex; /* Enables Flexbox */
+    flex-direction: column; /* Stacks child elements vertically */
+    justify-content: center; /* Centers vertically */
+    align-items: center; /* Centers horizontally */
+    text-align: center; /* Ensures text inside is center-aligned */
+}
+
+.app-logo {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 20px;
+    
+    object-fit: cover; /* Ensures the logo scales nicely */
+}
+
+.welcome-text {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center; /* Centers text inside the container */
+}
+
+.welcome-button {
+    background-color: #ff9800;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 15px 30px;
+    font-size: 2.26rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px; /* Adds spacing between the text and the button */
+}
+
+.welcome-button:hover {
+    background-color: #0f9dfc;
+}

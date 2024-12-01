@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Maths Buddy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    <h1 id="clickableHeader">Solve Genie</h1>
+    <!-- <h1>Solve Genie</h1> -->
+    <script src="script.js"></script>
+    <button onclick="location.href='whiteboard.html'">Go to Whiteboard</button>
+    <!-- Toggle Button -->
+    <div class="toggle-switch">
+        <input type="checkbox" id="themeToggle" />
+        <label for="themeToggle" class="toggle-label">
+            <span class="toggle-icon sun">🌞</span>
+            <span class="toggle-icon moon">🌜</span>
+            <span class="toggle-ball"></span>
+        </label>
+    </div>
+    <button id="toggleButton">Switch to Manual Entry</button>
+    
+    <!-- Image Upload Section -->
+    <div id="imageUploadSection">
+        <div class="upload-image">
+            <div class="inner-upload-image">
+                <input type="file" hidden>
+                <img src="" alt="" id="image">
+                <img src="plus.svg" alt="" id="icon">
+                <span>Upload Image</span>
+            </div>
+            </div>
+            <!-- <button id="uploadBtn">Answer</button> -->
+        <!-- </div> -->
+        <div class="button-container">
+            <button id="uploadBtn">Answer</button>
+            <button id="resetUploadImageBtn">Reset</button>
+        </div>
+        <div id="imageResult" style="margin-top: 15px;"></div>
+        <!-- <button id="resetUploadImageBtn"  style="margin-top:10px;">Reset</button>
+        <div id="imageResult"></div> -->
+    </div>
+
+    
+    <!-- Manual Entry Section -->
+    <div id="manualEntrySection" style="display: none;">
+        <div class="manual-entry">
+            <input type="text" id="equation-input" placeholder="Enter your equation here">
+            <div style="display: flex; gap: 10px;">
+                <button id="manualBtn">Answer</button>
+                <button id="micButton">🎤</button>
+                <button id="resetManualBtn">Reset</button>
+            </div>
+        </div>
+        
+        
+       
+        <div id="calculator-buttons" class="calculator-buttons">
+            <!-- Calculator buttons will be dynamically generated here -->
+        </div>
+    </div>
+ 
+    <div id="answer-message" style="display: none; color: rgb(0, 0, 0); font-size: 20px; margin-top: 10px;"></div>
+    <div class="output" id="outputSection" style="display: none;">
+        <pre id="text"></pre>
+    </div>
+
+    <img src="loading.gif" alt="loading" id="loading" width="80px">
+    <div class="output">
+        <pre id="text"></pre>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,729 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(27, 33, 39);
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    margin:0;
+    overflow-y: auto;
+}
+h1{
+    font-size: 4vw;
+    background: linear-gradient(to right,rgb(252, 32, 233),rgb(4, 142, 160),rgb(233, 236, 4)) ;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.upload-image{
+
+    max-height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;   
+    /* max-width: 600px;
+    width: 90%;
+    height: 300px;
+    background-color:white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 120px;
+    padding-right: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: column;
+    border-radius: 50px;
+    box-shadow: 2px 2px 10px rgb(183, 182, 189);
+    align-items: center;
+    overflow-y: auto;
+    justify-content: center; */
+
+}
+.inner-upload-image{
+    width: 100%;
+    height: 80%;
+    background-color:rgb(5, 5, 5);
+    border-radius: 50px;
+    box-shadow: 2px 2px 10px rgb(0, 0, 0);
+    display: flex;
+    align-items:center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 80px;
+    padding-right: 80px;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    color: white;
+    font-size: 20px;
+    transition: all 0.3s;
+    cursor: pointer;
+    
+}
+.inner-upload-image:hover{
+    box-shadow: inset 2px 2px 10px black;
+    background-color:rgba(92, 87, 87, 0.637);
+   }
+button{
+    background-color:rgb(165, 159, 159);
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-style: normal;
+    cursor: pointer;
+
+}
+#image {
+    width: 100%;      
+    height: auto;    
+    object-fit: contain;  
+    max-width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 250px;
+}
+#uploadBtn {
+    padding: 10px 20px;
+    background-color: #4caf50; /* Example: Green color for answer */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Hover effect for answer button */
+#uploadBtn:hover {
+    background-color: #3e8e41; /* Darker shade on hover */
+}
+
+/* #uploadBtn{
+    margin-top: 10px;
+    position: sticky;
+    bottom: 0; 
+    z-index: 10;
+    background-color: #007bff; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    
+}   */
+.output{
+    width:90%;
+    max-height: 400px;
+    max-width:  80%;
+    background-color: rgb(2, 3, 3);
+    color: rgb(255, 255, 255);
+    box-shadow: 2px 2px 10px black;
+    border-radius: 20px;
+    display: none;
+    padding: 20px;
+    font-size: 20px;
+    overflow: auto;
+}
+
+#resetUploadImageBtn {
+    margin-top: 15px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#resetUploadImageBtn:hover {
+    background-color: #d43f3f;
+}
+
+#text{
+    width: 100%;
+    height:100%;
+}
+#loading{
+    margin-top: 30px;
+    filter: drop-shadow(2px 2px 10px black);
+    display: none;
+}
+
+.manual-entry {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#equationInput {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#calculateBtn, #toggleCalculator {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+#calculator {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#calc-display {
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.calc-buttons {
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.calc-buttons button {
+    padding: 15px;
+    font-size: 18px;
+    background-color: #444;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.calc-buttons button:hover {
+    background-color: #555;
+}
+.upload-options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.manual-entry div {
+    display: flex;
+    gap: 10px;
+}
+
+
+.manual-entry input {
+    width: 90%;
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+.manual-entry button {
+    background-color: black;
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 20px;
+    color: antiquewhite;
+    font-style: normal;
+    cursor: pointer;
+}
+.calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.calculator-mode {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.calculator button {
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(45, 59, 75);
+    color: white;
+    transition: 0.3s;
+}
+
+.calculator button:hover {
+    background-color: rgb(60, 75, 90);
+}
+
+#toggleButton {
+    margin: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color:rgb(165, 159, 159);
+    color: black;
+}
+/* Styles for the welcome page */
+.welcome-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1b2127;
+    color: #ffffff;
+    text-align: center;
+}
+
+.welcome-container {
+    max-width: 500px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.app-logo {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+#welcomeButton {
+    padding: 10px 30px;
+    font-size: 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#welcomeButton:hover {
+    background-color: #555;
+}
+/* Dark Mode (default) */
+body {
+    transition: background-color 0.3s, color 0.3s;
+    background-color:rgb(165, 159, 159);
+    color: black;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+body.light-mode {
+    background-color: white;
+    color: black;
+}
+
+/* Button style changes */
+button {
+
+    /* background-color:rgb(165, 159, 159);
+    color: black; */
+    background-color:rgb(165, 159, 159);
+    color: black;
+}
+
+body.light-mode button {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Other elements in Light Mode */
+body.light-mode .upload-image,
+body.light-mode .manual-entry,
+body.light-mode .output {
+    background-color: #f0f0f0;
+    color: black;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between buttons */
+    margin-top: 15px;
+}
+#uploadBtn{
+    display: block; 
+    justify-content: center;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 20px;
+    background-color: #0afa3e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;    
+}
+
+#resetUploadImageBtn{
+    display: block; 
+    justify-content: center;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 20px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;    
+}
+
+#uploadBtn:hover {
+    background-color: #0056b3;
+}
+
+#resetUploadImageBtn:hover {
+    background-color: #ff2d96;
+}
+/* Basic reset */
+body {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    display: inline-block;
+}
+
+/* Hide the checkbox */
+.toggle-switch input {
+    display: none;
+}
+
+/* Style the toggle background */
+.toggle-label {
+    background-color: #333;
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+/* Sun and moon icons */
+.toggle-icon {
+    font-size: 16px;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.sun {
+    left: 10px;
+}
+
+.moon {
+    right: 10px;
+}
+
+/* Style the toggle ball */
+.toggle-ball {
+    background-color: white;
+    border-radius: 50%;
+    height: 22px;
+    width: 22px;
+    position: absolute;
+    left: 4px;
+    transition: left 0.3s;
+}
+
+/* Dark mode styles */
+input:checked + .toggle-label {
+    background-color: #ccc;
+}
+
+input:checked + .toggle-label .toggle-ball {
+    left: 34px;
+}
+
+input:checked + .toggle-label .sun {
+    opacity: 1;
+}
+
+input:not(:checked) + .toggle-label .moon {
+    opacity: 1;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 6vw;
+    }
+
+    .upload-image {
+        width: 80%;
+        padding: 20px;
+    }
+
+    .manual-entry input, #equationInput, #calculateBtn, #toggleCalculator {
+        width: 100%;
+    }
+
+    .calculator-buttons {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Enhanced Button Style */
+button:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+.toggle-ball {
+    background-color: #ffeb3b;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+}
+
+/* Loading Indicator Centered */
+#loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* General Layout and Centering */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-color: rgb(27, 33, 39);
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Page Heading */
+h1 {
+    font-size: 4vw;
+    text-align: center;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, rgb(252, 32, 233), rgb(4, 142, 160), rgb(170, 4, 71));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Centering the Toggle and Button */
+.toggle-switch,
+#toggleButton {
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Image Upload Section Styling */
+#imageUploadSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.upload-image {
+    width: 300px;
+    height: 250px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.inner-upload-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(5, 5, 5);
+    border-radius: 15px;
+    padding: 20px;
+    gap: 10px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+
+        width: 100%;      /* or a fixed width if you need */
+        max-width: 500px; /* optional, to set the max container width */
+        height: auto;
+        position: relative;
+
+    
+}
+
+
+.inner-upload-image:hover {
+    background-color: rgba(92, 87, 87, 0.8);
+}
+
+#uploadBtn, #resetUploadImageBtn {
+    margin-top: 10px;
+    width: 100px;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Manual Entry Section Styling */
+#manualEntrySection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.manual-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.manual-entry input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+#manualBtn, #micButton, #resetManualBtn {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Calculator Buttons Section */
+#calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Answer and Output Section */
+#answer-message {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.output {
+    width: 100%;
+    max-width: 650px;
+    background-color: rgb(2, 3, 3);
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 15px;
+    text-align: left;
+    overflow: auto;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    overflow: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+}
+
+#toolbar {
+    margin: 10px;
+}
+
+button {
+    margin-right: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: auto; 
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+#whiteboard {
+    display: block;
+    background-color: #fff;
+    cursor: crosshair;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally centers content */
+    justify-content: center; /* Vertically centers content */
+    min-height: 100vh; /* Makes the container take the full height of the viewport */
+    text-align: center; /* Centers text inside the container */
+}
+
+h1 {
+    font-size: 2rem; /* Adjust size as needed */
+    margin-bottom: 20px; /* Add spacing below the title */
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Maths Buddy</title>
+    <link rel="stylesheet" href="style1.css">
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.0.2/dist/tesseract.min.js"></script> <!-- Tesseract.js -->
+</head>
+<body>
+    <!-- Main Container for Whiteboard -->
+    
+        <!-- <div class="canvas-container">
+            <canvas id="drawingCanvas" width="70" height="50"></canvas>
+        </div> -->
+        <!-- <div class="container"> -->
+            <div>
+            <h1>Practice Your Question Here!!</h1>
+        </div>
+            <div class="whiteboard-container">
+            <canvas id="whiteboard"></canvas>
+        </div>
+
+        <!-- Whiteboard Controls -->
+        <div class="buttons-container">
+            <button id="clearBoard">Clear Whiteboard</button>
+            <button id="eraseMode">Erase</button>
+        </div>
+
+        <div id="imageResult"></div>
+   
+
+    <!-- Palette and Pen Settings -->
+    <div class="palette-container">
+        <h3>Select a Pen Color of your choice</h3>
+        <div class="color-palette">
+            <div class="color-option" style="background-color: rgb(245, 42, 153);" data-color="Pink"></div>
+            <div class="color-option" style="background-color: rgb(214, 12, 12);" data-color="Red"></div>
+            <div class="color-option" style="background-color: rgb(255, 166, 0);" data-color="Orange"></div>
+            <div class="color-option" style="background-color: rgb(241, 241, 19);" data-color="Yellow"></div>
+            <div class="color-option" style="background-color: rgb(0, 217, 255);" data-color="LightBlue"></div>
+            <div class="color-option" style="background-color: blue;" data-color="DarkBlue"></div>
+            <div class="color-option" style="background-color: purple;" data-color="Purple"></div>
+            <div class="color-option" style="background-color: rgb(26, 248, 26);" data-color="LightGreen"></div>
+            <div class="color-option" style="background-color: green;" data-color="DarkGreen"></div>
+            <div class="color-option" style="background-color: brown;" data-color="Brown"></div>
+            <div class="color-option" style="background-color: black;" data-color="Black"></div>
+        </div>
+        <p>Selected Color: <span id="selected-color">Black</span></p>
+    </div>
+
+    <!-- <div class="pen-container">
+        <h2>Select Pen Stroke Size</h2>
+        <input type="range" id="penSize" min="1" max="100" value="5" />
+        <p>Stroke Size: <span id="penSizeValue">5</span></p>
+    </div>
+
+    <div>
+        <label for="eraserSize">Eraser Size:</label>
+        <input type="range" id="eraserSizeSlider" min="1" max="100" value="50" />
+        <span id="eraserSizeValue">50</span>
+    </div> -->
+
+    <!-- JS for whiteboard functionality -->
+    <script src="whiteboard.js"></script> <!-- Your whiteboard.js -->
+    <script src="app.js"></script> <!-- Your app.js to handle OCR and logic -->
+    <button onclick="location.href='main.html'"> Go to previous page</button>
+</body>
+</html>
